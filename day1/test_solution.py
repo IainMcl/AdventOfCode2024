@@ -1,5 +1,5 @@
 import pytest
-from solution import get_total_diatance
+from day1.solution import get_total_distance, get_similarity
 
 @pytest.fixture
 def input_data():
@@ -13,6 +13,9 @@ def input_data():
 
 def test_get_total_distance(input_data):
     assert get_total_distance(input_data) == 11
+
+def test_get_total_distance_2(input_data):
+    assert get_similarity(input_data) == 31
     
 
 
