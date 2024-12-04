@@ -31,19 +31,28 @@ def parse_and_solve_do_dont(in_value: str) -> int:
         sum += product
     return sum
 
-def parse_input_do_dont(in_value: str) -> List[str]:
+def parse_input_do_dont(in_value: str) -> str:
     """
     Regex to parse a string looking for all text between 'do()' and 'don't()' or the end of the line,
     and also from the start to the first 'don't()'
     """
-    pattern = r"(.*?)don't\(\)|do\(\)(.*?)(?:don't\(\)|$)"
+    # pattern = r"/(mul\(\d{1,3},\d{1,3}\))|(do\(\))|(don't\(\))/gm"
+    pattern = r"(mul\(\d{1,3},\d{1,3}\))|(do\(\))|(don't\(\))"
     matches = re.findall(pattern, in_value)
+    new_matches = ""
+    do = True
     for match in matches:
-        print(match)
-        print()
+        # get the non null string from each tuple 
+        for m in match:
+            if m == "do()":
+                do = True
+            elif m == "don't()":
+                do = False
+            else:
+                if m and do:
+                    new_matches += m
     # flatten list of tuples
-    matches = ["".join(match) for match in matches]
-    return matches
+    return new_matches
 
 
 
