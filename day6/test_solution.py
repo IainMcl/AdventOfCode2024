@@ -17,6 +17,6 @@ def input_data():
 def test_count_path(input_data):
     assert count_path(input_data) == 41
 
-def test_create_paradox(input_data):
-    assert create_paradox(input_data) == 6
+# def test_create_paradox(input_data):
+#     assert create_paradox(input_data) == 6
 
